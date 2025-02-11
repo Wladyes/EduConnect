@@ -60,7 +60,7 @@ bash
 
 
 npm run dev
-Abre tu navegador web y visita http://localhost:........ para ver la aplicación en funcionamiento.
+Abre tu navegador web y visita http://localhost:3000 para ver la aplicación en funcionamiento.
 Uso
 Página de Inicio
 Introducción a EduConnect y acceso al menú de navegación.
@@ -168,4 +168,4 @@ Las contraseñas deben tener al menos 6 caracteres e incluir una letra, un núme
 Las contraseñas se cifran utilizando bcrypt antes de almacenarse.
 Almacenamiento de Datos:
 Los datos de usuarios, publicaciones y comentarios se almacenan en localStorage del navegador.
-Esto implica que los datos se mantendrán entre sesiones en el mismo navegador, pero no estarán disponibles si cambias de navegador o dispositivo.
+Esto implica que los datos se mantendrán entre sesiones en el mismo navegador, pero no estarán disponibles si cambias de navegador o dispositivo
