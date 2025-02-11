@@ -90,111 +90,76 @@ educonnect/
 │   │   ├── logo.png
 │   │   └── background.jpg
 ├── src/
-│   ├── components/
-│   │   ├── Avatar.tsx
-│   │   ├── Comment.tsx
-│   │   ├── Navbar.tsx
-│   │   ├── Post.tsx
-│   │   ├── Profile.tsx
-│   │   ├── UserList.tsx
-│   │   └── AdminPanel.tsx
-│   ├── pages/
-│   │   ├── HomePage.tsx
-│   │   ├── LoginPage.tsx
-│   │   ├── ProfilePage.tsx
-│   │   ├── RegisterPage.tsx
-│   │   ├── AdminPage.tsx
-│   │   ├── PostsPage.tsx
-│   │   └── NotFoundPage.tsx
-│   ├── contexts/
-│   │   ├── AuthContext.tsx
-│   │   ├── PostsContext.tsx
-│   │   ├── UsersContext.tsx
-│   │   └── ThemeContext.tsx
-│   ├── routes/
-│   │   ├── PrivateRoute.tsx
-│   │   ├── PublicRoute.tsx
-│   │   └── Router.tsx
-│   ├── types/
-│   │   ├── Post.ts
-│   │   ├── User.ts
-│   │   └── Comment.ts
-│   ├── utils/
-│   │   ├── formatDate.ts
-│   │   ├── validateEmail.ts
-│   │   └── storage.ts
-│   ├── App.tsx
-│   ├── App.css
-│   ├── main.tsx
-│   ├── index.css
-│   └── theme.ts
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-├── index.html
-└── README.md
-```
+│   ├── components/          // Componentes reutilizables
+│   ├── pages/               // Páginas principales de la aplicación
+│   ├── contexts/            // Contextos para manejar estados globales
+│   ├── routes/              // Configuración de rutas
+│   ├── types/               // Tipos e interfaces de TypeScript
+│   ├── utils/               // Utilidades y funciones auxiliares
+│   ├── App.tsx              // Componente principal de la aplicación
+│   ├── App.css              // Estilos globales para el componente App
+│   ├── main.tsx             // Punto de entrada principal de React
+│   ├── index.css            // Estilos globales de la aplicación
+│   └── theme.ts             // Definición de temas
+├── package.json             // Configuración de dependencias del proyecto
+├── tsconfig.json            // Configuración de TypeScript
+├── vite.config.ts           // Configuración de Vite
+├── index.html               // Archivo HTML principal
+└── README.md                // Documentación del proyecto
+Tecnologías Utilizadas
+React
+TypeScript
+Vite
+Material-UI (MUI)
+React Router DOM
+bcryptjs
+CSS3
+localStorage
+Dependencias Instaladas
+Además de las tecnologías mencionadas, el proyecto utiliza las siguientes dependencias y librerías:
+Dependencias Principales
+@emotion/react
+@emotion/styled
+@mui/icons-material
+@mui/material
+bcryptjs
+react
+react-dom
+react-router-dom
+Dependencias de Desarrollo
+@types/bcryptjs
+@types/react
+@types/react-dom
+@types/react-router-dom
+@vitejs/plugin-react
+eslint
+eslint-config-prettier
+typescript
+vite
+Dependencias Adicionales para Compatibilidad
+Para asegurar el correcto funcionamiento de ciertos módulos en el navegador, se instalaron:
+Polyfills y Paquetes Adicionales:
+bash
 
----
 
-## Tecnologías Utilizadas
-
-- **React**
-- **TypeScript**
-- **Vite**
-- **Material-UI (MUI)**
-- **React Router DOM**
-- **bcryptjs**
-- **CSS3**
-- **localStorage**
-
----
-
-## Dependencias Instaladas
-
-### Dependencias Principales
-- `@emotion/react`
-- `@emotion/styled`
-- `@mui/icons-material`
-- `@mui/material`
-- `bcryptjs`
-- `react`
-- `react-dom`
-- `react-router-dom`
-
-### Dependencias de Desarrollo
-- `@types/bcryptjs`
-- `@types/react`
-- `@types/react-dom`
-- `@types/react-router-dom`
-- `@vitejs/plugin-react`
-- `eslint`
-- `eslint-config-prettier`
-- `typescript`
-- `vite`
-
----
-
-## Contribuciones
-
-- **Wladymir Escobar** - Desarrollador Frontend  
-  Email: gwescobar@espe.edu.ec  
-- **Margarita Fajardo** - Desarrolladora Backend  
-  Email: mcfajardo1@espe.edu.ec  
-- **Sandy Mariño** - Gestora de Proyecto  
-  Email: sjmarino1@espe.edu.ec  
-
----
-
-## Notas Importantes
-
-### Restricción para Registrar Administradores
-- Solo es posible registrar usuarios con rol de **Administrador** si el correo electrónico sigue el patrón `admin<number>@educonnect`.
-
-### Seguridad de Contraseñas
-- Las contraseñas deben tener al menos 6 caracteres e incluir una letra, un número y un carácter especial.
-- Las contraseñas se cifran utilizando **bcrypt** antes de almacenarse.
-
-### Almacenamiento de Datos
-- Los datos de usuarios, publicaciones y comentarios se almacenan en `localStorage`.
-
+npm install --save-dev @esbuild-plugins/node-modules-polyfill @esbuild-plugins/node-globals-polyfill
+npm install --save-dev crypto-browserify stream-browserify
+Estos paquetes permiten utilizar funcionalidades de Node.js en un entorno de navegador, evitando errores relacionados con módulos faltantes.
+Contribuciones
+Wladymir Escobar - Desarrollador Frontend
+Email: gwescobar@espe.edu.ec
+Margarita Fajardo - Desarrolladora Backend
+Email: mcfajardo1@espe.edu.ec
+Sandy Mariño - Gestora de Proyecto
+Email: sjmarino1@espe.edu.ec
+Notas Importantes
+Restricción para Registrar Administradores:
+Solo es posible registrar usuarios con rol de Administrador si el correo electrónico sigue el patrón admin<number>@educonnect (por ejemplo, admin1@educonnect).
+Si intentas registrar un administrador con un correo que no cumpla este patrón, el sistema te asignará el rol de Publicador.
+Esta restricción se implementa para controlar quiénes pueden acceder a las funciones administrativas de la aplicación.
+Seguridad de Contraseñas:
+Las contraseñas deben tener al menos 6 caracteres e incluir una letra, un número y un carácter especial.
+Las contraseñas se cifran utilizando bcrypt antes de almacenarse.
+Almacenamiento de Datos:
+Los datos de usuarios, publicaciones y comentarios se almacenan en localStorage del navegador.
+Esto implica que los datos se mantendrán entre sesiones en el mismo navegador, pero no estarán disponibles si cambias de navegador o dispositivo.
