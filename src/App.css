@@ -1,0 +1,18 @@
+/* src/App.css */
+/* Fondo global para toda la aplicación */
+/*body {
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(78,122,131,1) 11%, rgba(17,17,40,0.9920343137254902) 53%);
+}
+*/
+
+body {
+  background-image: url('/images/background.jpg'); 
+  background-size: cover; 
+  background-attachment: fixed; 
+  background-position: center; 
+  margin: 0; 
+  padding: 0; 
+  font-family: 'Roboto', sans-serif; 
+}
+
