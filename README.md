@@ -76,37 +76,7 @@ Sigue estos pasos para ejecutar el proyecto en tu entorno local:
    npm run dev
    ```
 
-5. **Abre tu navegador web** y visita `http://localhost:.......` para ver la aplicación en funcionamiento.
-
----
-
-## Uso
-
-### Página de Inicio
-- Introducción a **EduConnect** y acceso al menú de navegación.
-
-### Registro e Inicio de Sesión
-
-#### Registro
-- Completa el formulario de registro proporcionando:
-  - Nombre de usuario.
-  - Correo electrónico.
-  - Contraseña.
-  - Rol (Publicador o Administrador).
-- **Nota**: Para registrar un usuario con rol de **Administrador**, el correo electrónico debe seguir el patrón `admin<number>@educonnect`.
-
-#### Inicio de Sesión
-- Accede con tus credenciales para utilizar las funcionalidades de la aplicación.
-
-### Publicaciones
-- Crear, comentar y reaccionar a publicaciones.
-- Eliminar publicaciones propias o comentarios según rol.
-
-### Perfil de Usuario
-- Edita tu nombre de usuario y cambia tu imagen de perfil.
-
-### Panel de Administración
-- Administrar usuarios y contenido.
+5. **Abre tu navegador web** y visita `http://localhost:3000` para ver la aplicación en funcionamiento.
 
 ---
 
@@ -114,14 +84,47 @@ Sigue estos pasos para ejecutar el proyecto en tu entorno local:
 
 ```plaintext
 educonnect/
+├── public/
+│   ├── images/
+│   │   ├── avatar.png
+│   │   ├── logo.png
+│   │   └── background.jpg
 ├── src/
 │   ├── components/
+│   │   ├── Avatar.tsx
+│   │   ├── Comment.tsx
+│   │   ├── Navbar.tsx
+│   │   ├── Post.tsx
+│   │   ├── Profile.tsx
+│   │   ├── UserList.tsx
+│   │   └── AdminPanel.tsx
 │   ├── pages/
+│   │   ├── HomePage.tsx
+│   │   ├── LoginPage.tsx
+│   │   ├── ProfilePage.tsx
+│   │   ├── RegisterPage.tsx
+│   │   ├── AdminPage.tsx
+│   │   ├── PostsPage.tsx
+│   │   └── NotFoundPage.tsx
 │   ├── contexts/
+│   │   ├── AuthContext.tsx
+│   │   ├── PostsContext.tsx
+│   │   ├── UsersContext.tsx
+│   │   └── ThemeContext.tsx
 │   ├── routes/
+│   │   ├── PrivateRoute.tsx
+│   │   ├── PublicRoute.tsx
+│   │   └── Router.tsx
 │   ├── types/
+│   │   ├── Post.ts
+│   │   ├── User.ts
+│   │   └── Comment.ts
 │   ├── utils/
+│   │   ├── formatDate.ts
+│   │   ├── validateEmail.ts
+│   │   └── storage.ts
 │   ├── App.tsx
+│   ├── App.css
 │   ├── main.tsx
 │   ├── index.css
 │   └── theme.ts
@@ -185,9 +188,14 @@ educonnect/
 
 ## Notas Importantes
 
-- **Restricción para Registrar Administradores**: Solo correos con el patrón `admin<number>@educonnect` pueden registrarse como administradores.
-- **Seguridad de Contraseñas**: Se cifran con **bcrypt**.
-- **Almacenamiento de Datos**: Se usa `localStorage`.
+### Restricción para Registrar Administradores
+- Solo es posible registrar usuarios con rol de **Administrador** si el correo electrónico sigue el patrón `admin<number>@educonnect`.
 
----
+### Seguridad de Contraseñas
+- Las contraseñas deben tener al menos 6 caracteres e incluir una letra, un número y un carácter especial.
+- Las contraseñas se cifran utilizando **bcrypt** antes de almacenarse.
+
+### Almacenamiento de Datos
+- Los datos de usuarios, publicaciones y comentarios se almacenan en `localStorage`.
+
 
