@@ -25,27 +25,32 @@
 ## Características
 
 ### Gestión de Usuarios
+
 - Registro de nuevos usuarios con roles de **Publicador** o **Administrador**.
 - Inicio y cierre de sesión.
 - Edición del perfil de usuario y cambio de imagen de perfil.
 
 ### Publicaciones
+
 - Creación de nuevas publicaciones con contenido textual.
 - Visualización de publicaciones existentes.
 - Eliminación de publicaciones propias.
 
 ### Comentarios
+
 - Agregar comentarios a las publicaciones.
 - Visualización de comentarios asociados a cada publicación.
 - Reacciones ("Me gusta") en los comentarios.
 - Eliminación de comentarios propios.
 
 ### Administración
+
 - Panel de administración para usuarios con rol de **Administrador**.
 - Gestión de usuarios: cambio de roles y eliminación.
 - Eliminación de publicaciones y comentarios desde el panel de administración.
 
 ### Seguridad y Validaciones
+
 - Cifrado de contraseñas utilizando **bcrypt**.
 - Validación de correos electrónicos y contraseñas.
 - Restricciones en la eliminación de contenido según roles.
@@ -57,21 +62,25 @@
 Sigue estos pasos para ejecutar el proyecto en tu entorno local:
 
 1. **Clona el repositorio**:
+
    ```bash
    git clone https://github.com/tu-usuario/educonnect.git
    ```
 
 2. **Navega al directorio del proyecto**:
+
    ```bash
    cd educonnect
    ```
 
 3. **Instala las dependencias**:
+
    ```bash
    npm install
    ```
 
 4. **Inicia la aplicación**:
+
    ```bash
    npm run dev
    ```
@@ -85,81 +94,124 @@ Sigue estos pasos para ejecutar el proyecto en tu entorno local:
 ```plaintext
 educonnect/
 ├── public/
-│   ├── images/
-│   │   ├── avatar.png
-│   │   ├── logo.png
-│   │   └── background.jpg
+│   └── images/              # Carpeta para imágenes públicas accesibles desde el navegador
 ├── src/
-│   ├── components/          // Componentes reutilizables
-│   ├── pages/               // Páginas principales de la aplicación
-│   ├── contexts/            // Contextos para manejar estados globales
-│   ├── routes/              // Configuración de rutas
-│   ├── types/               // Tipos e interfaces de TypeScript
-│   ├── utils/               // Utilidades y funciones auxiliares
-│   ├── App.tsx              // Componente principal de la aplicación
-│   ├── App.css              // Estilos globales para el componente App
-│   ├── main.tsx             // Punto de entrada principal de React
-│   ├── index.css            // Estilos globales de la aplicación
-│   └── theme.ts             // Definición de temas
-├── package.json             // Configuración de dependencias del proyecto
-├── tsconfig.json            // Configuración de TypeScript
-├── vite.config.ts           // Configuración de Vite
-├── index.html               // Archivo HTML principal
-└── README.md                // Documentación del proyecto
-Tecnologías Utilizadas
-React
-TypeScript
-Vite
-Material-UI (MUI)
-React Router DOM
-bcryptjs
-CSS3
-localStorage
-Dependencias Instaladas
-Además de las tecnologías mencionadas, el proyecto utiliza las siguientes dependencias y librerías:
-Dependencias Principales
-@emotion/react
-@emotion/styled
-@mui/icons-material
-@mui/material
-bcryptjs
-react
-react-dom
-react-router-dom
-Dependencias de Desarrollo
-@types/bcryptjs
-@types/react
-@types/react-dom
-@types/react-router-dom
-@vitejs/plugin-react
-eslint
-eslint-config-prettier
-typescript
-vite
-Dependencias Adicionales para Compatibilidad
-Para asegurar el correcto funcionamiento de ciertos módulos en el navegador, se instalaron:
-Polyfills y Paquetes Adicionales:
-bash
+│   ├── components/          # Componentes reutilizables
+│   │   ├── Footer.tsx       # Componente para el pie de página
+│   │   ├── LoadingSpinner.tsx  # Indicador de carga
+│   │   ├── Logo.tsx         # Componente para mostrar el logo
+│   │   ├── NavBar.tsx       # Barra de navegación
+│   │   ├── NavButton.tsx    # Botón reutilizable para la navegación
+│   │   ├── PostCard.tsx     # Tarjeta para publicaciones individuales
+│   │   ├── TransparentBox.tsx  # Caja transparente para resaltar contenido
+│   │   ├── UserAvatar.tsx   # Avatar del usuario
+│   │   ├── CommentList.tsx  # Lista de comentarios
+│   │   ├── CommentForm.tsx  # Formulario de comentarios
+│   │   ├── TeamMemberCard.tsx  # Tarjeta para miembros del equipo
+│   │   └── (otros componentes reutilizables)
+│   ├── pages/               # Páginas principales
+│   │   ├── HomePage.tsx     # Página de inicio
+│   │   ├── AboutPage.tsx    # Página "Acerca de"
+│   │   ├── PostsPage.tsx    # Página de publicaciones
+│   │   ├── LoginPage.tsx    # Página de inicio de sesión
+│   │   ├── RegisterPage.tsx # Página de registro
+│   │   ├── AdminPage.tsx    # Página de administración
+│   │   ├── ProfilePage.tsx  # Página de perfil de usuario
+│   │   └── NotFoundPage.tsx # Página de error 404
+│   ├── contexts/            # Contextos globales
+│   │   └── AuthContext.tsx  # Contexto de autenticación
+│   ├── routes/              # Configuración de rutas
+│   │   ├── AppRoutes.tsx    # Definición de rutas de la aplicación
+│   │   └── ProtectedRoute.tsx # Protección de rutas privadas
+│   ├── types/               # Tipos e interfaces TypeScript
+│   │   ├── User.ts          # Tipos de usuario
+│   │   ├── Post.ts          # Tipos de publicaciones
+│   │   ├── Comment.ts       # Tipos de comentarios
+│   │   └── (otros tipos e interfaces)
+│   ├── utils/               # Funciones auxiliares
+│   │   ├── auth.ts          # Funciones de autenticación
+│   │   ├── posts.ts         # Funciones de publicaciones
+│   │   └── validation.ts    # Validaciones
+│   ├── App.tsx              # Componente principal
+│   ├── App.css              # Estilos globales
+│   ├── main.tsx             # Punto de entrada de React
+│   ├── index.css            # Estilos generales
+│   ├── theme.ts             # Definición de temas
+│   └── vite-env.d.ts        # Configuración de TypeScript para Vite
+├── package.json             # Configuración de dependencias
+├── tsconfig.json            # Configuración de TypeScript
+├── vite.config.ts           # Configuración de Vite
+├── index.html               # Archivo HTML principal
+└── README.md                # Documentación del proyecto
 
 
-npm install --save-dev @esbuild-plugins/node-modules-polyfill @esbuild-plugins/node-globals-polyfill
-npm install --save-dev crypto-browserify stream-browserify
-Estos paquetes permiten utilizar funcionalidades de Node.js en un entorno de navegador, evitando errores relacionados con módulos faltantes.
-Contribuciones
-Wladymir Escobar - Desarrollador Frontend
-Email: gwescobar@espe.edu.ec
-Margarita Fajardo - Desarrolladora Backend
-Email: mcfajardo1@espe.edu.ec
-Sandy Mariño - Gestora de Proyecto
-Email: sjmarino1@espe.edu.ec
-Notas Importantes
-Restricción para Registrar Administradores:
-Solo es posible registrar usuarios con rol de Administrador si el correo electrónico sigue el patrón admin<number>@educonnect (por ejemplo, admin1@educonnect).
-Si intentas registrar un administrador con un correo que no cumpla este patrón, el sistema te asignará el rol de Publicador.
-Esta restricción se implementa para controlar quiénes pueden acceder a las funciones administrativas de la aplicación.
-Seguridad de Contraseñas:
-Las contraseñas deben tener al menos 6 caracteres e incluir una letra, un número y un carácter especial.
-Las contraseñas se cifran utilizando bcrypt antes de almacenarse.
-Almacenamiento de Datos:
-Los datos de usuarios, publicaciones y comentarios se almacenan en localStorage del navegador.
-Esto implica que los datos se mantendrán entre sesiones en el mismo navegador, pero no estarán disponibles si cambias de navegador o dispositivo.
+```
+
+---
+
+## Tecnologías Utilizadas
+
+- **React**
+- **TypeScript**
+- **Vite**
+- **Material-UI (MUI)**
+- **React Router DOM**
+- **bcryptjs**
+- **CSS3**
+- **localStorage**
+
+---
+
+## Dependencias Instaladas
+
+### Dependencias Principales
+
+- `@emotion/react`
+- `@emotion/styled`
+- `@mui/icons-material`
+- `@mui/material`
+- `bcryptjs`
+- `react`
+- `react-dom`
+- `react-router-dom`
+
+### Dependencias de Desarrollo
+
+- `@types/bcryptjs`
+- `@types/react`
+- `@types/react-dom`
+- `@types/react-router-dom`
+- `@vitejs/plugin-react`
+- `eslint`
+- `eslint-config-prettier`
+- `typescript`
+- `vite`
+
+---
+
+## Contribuciones
+
+- **Wladymir Escobar** - Desarrollador Frontend\
+  Email: [gwescobar@espe.edu.ec](mailto\:gwescobar@espe.edu.ec)
+- **Margarita Fajardo** - Desarrolladora Backend\
+  Email: [mcfajardo1@espe.edu.ec](mailto\:mcfajardo1@espe.edu.ec)
+- **Sandy Mariño** - Gestora de Proyecto\
+  Email: [sjmarino1@espe.edu.ec](mailto\:sjmarino1@espe.edu.ec)
+
+---
+
+## Notas Importantes
+
+### Restricción para Registrar Administradores
+
+- Solo es posible registrar usuarios con rol de **Administrador** si el correo electrónico sigue el patrón `admin<number>@educonnect`.
+
+### Seguridad de Contraseñas
+
+- Las contraseñas deben tener al menos 6 caracteres e incluir una letra, un número y un carácter especial.
+- Las contraseñas se cifran utilizando **bcrypt** antes de almacenarse.
+
+### Almacenamiento de Datos
+
+- Los datos de usuarios, publicaciones y comentarios se almacenan en `localStorage`.
+
